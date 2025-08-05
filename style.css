@@ -1,0 +1,294 @@
+html, body{
+   height: 100%;
+   color: #000;
+   background-color: #fff;
+}
+
+p {
+   color: #000;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 12px;
+}
+
+a {
+   text-align: center;
+}
+
+body .col-10 {
+   background-color: #eee !important;
+}
+
+/* Interactive elements */
+/* These classes are used to style gallery modals created by clicking on images */
+.modalOverlay {
+/* This class is used to create a full screen overlay for the modal which will contain the image */
+   display: flex; /* REMEMBER: DISPLAY FLEX IS USED TO CENTER CONTENT */
+   justify-content: center;
+   align-items: center;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   position: fixed;
+   height: 100vh;
+   width: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
+   z-index: 1000; /* Ensure class is top of other elements */
+   visibility: hidden;  
+   transition: visibility 0s, opacity 0.3s ease-in-out; 
+}
+
+.modalImageContainer {
+   display: flex;
+   height: 100vh;
+   display: flex;
+   object-fit: contain;
+   visibility: hidden;
+}
+
+.modalImageContent {
+/* This class is used to style the image within the modalOverlay */
+   height: 90%;
+   width: 90%;
+   object-fit: contain;
+   visibility: hidden;
+}
+
+#modalImage {
+   z-index: 1002;
+   visibility: hidden;
+}
+
+.modalCloseButton {
+   position: absolute;
+   top: 0;
+   right: 2%;
+   background-color: transparent;
+   border: none;
+   color:#EEE;
+   font-size: 2.5rem;
+   cursor: pointer;
+   z-index: 1001; /* Ensure class is top of other elements */
+   visibility: hidden;
+   transition: background-color 0.2s ease;
+}
+
+.modalPrevButton .modalNextButton{
+   display: flex;
+   position: absolute;
+   background-color: rgba(0, 0, 0, 0.5);
+   border: none;
+   color: #EEE;
+   font-size: 2.5rem;
+   cursor: pointer;
+  /* padding: 10px 15px;
+   border-radius: 5px;*/
+   z-index: 1001;
+   visibility: hidden;
+   transition: background-color 0.2s ease;
+}
+
+.modalPrevButton:hover .modalNextButton:hover {
+   background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modalPrevButton {
+   left: 10px;
+} 
+.modalNextButton{
+   right: 10px;
+}
+/* interactive elements END */
+
+
+/* NAVIGATION BAR CLASSES START*/
+.navSideContainer {
+/* This container holds and centers the navigation sidebar */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100vh; /* 65% height of the viewport */
+}
+
+.navSide {
+/* This is the sidebar navigation */
+   display: flex; /* Allows for vertical distribution */
+   flex-direction: column; /* stacks content vertically */
+   justify-content: space-around; /* Distributes content evenly in the column */
+   align-items: center; /* Aligning itmes to the start (left) */
+}
+
+.navSide a {
+   padding: 10px 0;
+   display: block; 
+   color: #000;
+   text-decoration: none;
+   text-align: center;
+}
+.navSide a:hover {
+   color: #000;
+   text-decoration: underline;
+}
+
+.logo {
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.logo :hover {
+   text-decoration: none !important;
+}
+
+.socialMedia {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin-top: 50px;
+}
+.icons {
+   background-color: #fff;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 16px;
+   width: 16px;
+   padding: 10px 0;
+   margin: 12px 0;
+   border: none;
+}
+
+/*MAKE SURE TO ADD TOOLTIP FOR SOCIAL MEDIA ICONS */
+.tooltip {
+   visibility: hidden;
+}
+
+.tooltip:hover {
+   visibility: visibile !important;
+}
+
+/* NAVIGATION BAR CLASSES END*/
+
+
+/* HOME PAGE CLASSES */
+.featuredContainer {
+/*This container holds and centers the featured images */
+   background-color: #EEE;
+   display: flex; /* Allows for vertical distribution */
+   justify-content: center; /* Distributes content evenly in the column */
+   align-items: center; /* Aligning itmes to the start (left) */
+   overflow: hidden;
+   height: 100vh;
+   margin: auto, 0;
+}
+
+/* CAROUSEL CLASSES START */
+.carousel-inner {
+    height: 100%; /* Make the inner part of the carousel take full height */
+}
+
+.carousel-inner .carousel-item {
+    height: 100%; /* Each carousel item should take full height */
+    width: auto;
+    display: flex; /* Use flexbox to center the image within the item */
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+    max-width: 100%;
+}
+
+.carousel-inner .carousel-item img {
+   height: 100%; /* This is the key: Prioritize filling the height */
+   width: auto;  /* Let width adjust automatically to maintain aspect ratio */
+   /*NOTE: set max-width between 25% and 50% to ensure it fits on screen vertically */
+   max-width: 50%; /* Ensure it doesn't overflow horizontally if image is wider than container when scaled by height */
+ }
+
+.bi-chevron-compact-left, .bi-chevron-compact-right {
+   font-size: 2rem; /* Adjust size as needed */
+   color: #000; /* Change color to match your design */
+}/* CAROUSEL CLASSES END */
+/* HOME PAGE CLASSES END */
+
+/* GALLERY PAGE CLASSES */
+.galleryContainer {
+   background-color: #EEE;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   height: 100vh;
+   
+}
+
+.galleryContainer .row .col-4 {
+   background-color: #eee;
+   padding: 0 6px; /* Add some padding to the columns */
+}
+
+.middleColumn {
+   padding: 0 !important;
+}
+
+.galleryRow {
+   display: flex;
+   align-items: center;
+}
+
+.galleryImage img {
+   height: 100%; /* This is the key: Prioritize filling the height */
+   width: auto;  /* Let width adjust automatically to maintain aspect ratio */
+   padding-top: 6px;
+   cursor: pointer;
+}
+/* GALLERY PAGE CLASSES END */
+
+/* CONTACT PAGE CLASSES START*/
+.contactContainer {
+   background-color: #EEE;
+   display: flex;
+   align-items: center;
+}
+
+.contactContentContainer {
+   height: 100vh;
+}
+
+.calendly-inline-widget {
+   width: 80%;
+   height: 80%;
+   margin: auto; 
+   align-content: center !important;
+}
+/* CONTACT PAGE CLASSES END*/
+
+/* ABOUT PAGE CLASSES */
+.aboutContentContainer {
+   background-color: #EEE !important;
+   display: flex;
+   align-content: center;
+   justify-content: center;
+   text-align: center;
+   margin: auto;
+   height: 100%;
+   width: auto;
+}
+
+.aboutContentContainer img{
+   height: 100%; /* This is the key: Prioritize filling the height */
+   width: auto;  /* Let width adjust automatically to maintain aspect ratio */
+}
+
+.aboutContentContainer .col-5 {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.aboutContent {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+/* ABOUT PAGE CLASSES END */
+
