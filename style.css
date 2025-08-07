@@ -18,89 +18,6 @@ body .col-10 {
    background-color: #eee !important;
 }
 
-/* Interactive elements */
-/* These classes are used to style gallery modals created by clicking on images */
-.modalOverlay {
-/* This class is used to create a full screen overlay for the modal which will contain the image */
-   display: flex; /* REMEMBER: DISPLAY FLEX IS USED TO CENTER CONTENT */
-   justify-content: center;
-   align-items: center;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   position: fixed;
-   height: 100vh;
-   width: 100%;
-   background-color: rgba(0, 0, 0, 0.5);
-   z-index: 1000; /* Ensure class is top of other elements */
-   visibility: hidden;  
-   transition: visibility 0s, opacity 0.3s ease-in-out; 
-}
-
-.modalImageContainer {
-   display: flex;
-   height: 100vh;
-   display: flex;
-   object-fit: contain;
-   visibility: hidden;
-}
-
-.modalImageContent {
-/* This class is used to style the image within the modalOverlay */
-   height: 90%;
-   width: 90%;
-   object-fit: contain;
-   visibility: hidden;
-}
-
-#modalImage {
-   z-index: 1002;
-   visibility: hidden;
-}
-
-.modalCloseButton {
-   position: absolute;
-   top: 0;
-   right: 2%;
-   background-color: transparent;
-   border: none;
-   color:#EEE;
-   font-size: 2.5rem;
-   cursor: pointer;
-   z-index: 1001; /* Ensure class is top of other elements */
-   visibility: hidden;
-   transition: background-color 0.2s ease;
-}
-
-.modalPrevButton .modalNextButton{
-   display: flex;
-   position: absolute;
-   background-color: rgba(0, 0, 0, 0.5);
-   border: none;
-   color: #EEE;
-   font-size: 2.5rem;
-   cursor: pointer;
-  /* padding: 10px 15px;
-   border-radius: 5px;*/
-   z-index: 1001;
-   visibility: hidden;
-   transition: background-color 0.2s ease;
-}
-
-.modalPrevButton:hover .modalNextButton:hover {
-   background-color: rgba(0, 0, 0, 0.7);
-}
-
-.modalPrevButton {
-   left: 10px;
-} 
-.modalNextButton{
-   right: 10px;
-}
-/* interactive elements END */
-
-
 /* NAVIGATION BAR CLASSES START*/
 .navSideContainer {
 /* This container holds and centers the navigation sidebar */
@@ -200,12 +117,7 @@ body .col-10 {
    width: auto;  /* Let width adjust automatically to maintain aspect ratio */
    /*NOTE: set max-width between 25% and 50% to ensure it fits on screen vertically */
    max-width: 50%; /* Ensure it doesn't overflow horizontally if image is wider than container when scaled by height */
- }
-
-.bi-chevron-compact-left, .bi-chevron-compact-right {
-   font-size: 2rem; /* Adjust size as needed */
-   color: #000; /* Change color to match your design */
-}/* CAROUSEL CLASSES END */
+ }/* CAROUSEL CLASSES END */
 /* HOME PAGE CLASSES END */
 
 /* GALLERY PAGE CLASSES */
@@ -239,6 +151,102 @@ body .col-10 {
    padding-top: 6px;
    cursor: pointer;
 }
+
+/* Interactive elements */
+/* These classes are used to style gallery modals created by clicking on images */
+.modalOverlay {
+/* This class is used to create a full screen overlay for the modal which will contain the image */
+   position: relative;
+   display: flex; /* REMEMBER: DISPLAY FLEX IS USED TO CENTER CONTENT */
+   justify-content: center;
+   align-items: center;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   position: fixed;
+   height: 100vh;
+   width: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
+   z-index: 1000; /* Ensure class is top of other elements */
+   visibility: hidden;  
+   transition: visibility 0s, opacity 0.3s ease-in-out; 
+}
+
+@media screen and (max-aspect-ratio: 5/3) {
+   .modalImageContainer{
+   display: flex;
+   height: auto;
+   width: 100%;
+   display: flex;
+   object-fit: contain;
+   visibility: hidden;
+   }
+}
+
+.modalImageContainer {
+   display: flex;
+   height: 100vh;
+   display: flex;
+   object-fit: contain;
+   visibility: hidden;
+}
+
+.modalImageContent {
+/* This class is used to style the image within the modalOverlay */
+   height: 90%;
+   width: 90%;
+   object-fit: contain;
+   visibility: hidden;
+}
+
+#modalImage {
+   z-index: 1001;
+   visibility: hidden;
+}
+
+.modalCloseButton {
+   position: absolute;
+   top: 0;
+   right: 2%;
+   background-color: transparent;
+   border: none;
+   color:#EEE;
+   font-size: 2.5rem;
+   cursor: pointer;
+   z-index: 1002; /* Ensure class is top of other elements */
+   visibility: hidden;
+   transition: background-color 0.2s ease;
+}
+
+#prevButton, #nextButton {
+   position: absolute;
+   background-color: transparent;
+   border: none;
+   font-size: 2.5rem;
+   cursor: pointer;
+   z-index: 1002;
+   visibility: hidden;
+   transition: background-color 0.2s ease;
+}
+
+.modalPrevButton {
+   left: 10px;
+} 
+.modalNextButton{
+   right: 10px;
+}
+
+.bi-chevron-compact-left, .bi-chevron-compact-right{
+   font-size: 2rem;
+   color: #fff;
+}
+.bi-chevron-compact-left:hover, .bi-chevron-compact-right:hover {
+   background-color: rgba(0, 0, 0, 0.5);
+   color: #fff;
+}
+/* interactive elements END */
+
 /* GALLERY PAGE CLASSES END */
 
 /* CONTACT PAGE CLASSES START*/
