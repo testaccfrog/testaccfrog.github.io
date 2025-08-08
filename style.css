@@ -146,8 +146,8 @@ body .col-10 {
 }
 
 .galleryImage img {
-   height: 100%; /* This is the key: Prioritize filling the height */
-   width: auto;  /* Let width adjust automatically to maintain aspect ratio */
+   width: 100%; /* This is the key: Prioritize filling the height */
+   height: auto;  /* Let width adjust automatically to maintain aspect ratio */
    padding-top: 6px;
    cursor: pointer;
 }
