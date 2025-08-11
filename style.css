@@ -267,6 +267,7 @@ body .col-10 {
    background-color: #EEE;
    display: flex;
    align-items: center;
+   height: 100dvh;
    height: 100vh; /* Ensure full viewport height */
    overflow: hidden; /* Prevent content from spilling out */
 }
@@ -275,6 +276,7 @@ body .col-10 {
    display: flex;
    flex-direction: column;
    position: relative;
+   height: 100dvh;
    height: 100vh;
    width: 100%;
    padding: 20px;
