@@ -1,16 +1,29 @@
+/*
+COLOR PALETTE OPTIONS: Two tone
+ #815854, #F9EBDE Tans
+ #F0EDCC, #02343F Light tan green and Black Green
+ #2D2926, #ed6f63 Black brown-red, and light pastelish-red
+*/
+
 html, body{
    height: 100%;
    color: #000;
    background-color: #fff;
 }
 
+h1 {
+   text-align: center;
+}
+
 p {
    color: #000;
    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-   font-size: 12px;
+   font-size: 14px;
+   text-align: justify;
 }
 
 a {
+   color: #000;
    text-align: center;
 }
 
@@ -38,16 +51,15 @@ body .col-10 {
 .navSide a {
    padding: 10px 0;
    display: block; 
-   color: #000;
    text-decoration: none;
    text-align: center;
 }
 .navSide a:hover {
-   color: #000;
    text-decoration: underline;
 }
 
 .logo {
+   color: #000;
    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -56,6 +68,7 @@ body .col-10 {
 }
 
 .socialMedia {
+   color: #000;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -63,24 +76,26 @@ body .col-10 {
    margin-top: 50px;
 }
 .icons {
-   background-color: #fff;
+   color: #fff;
+   background-color: #000;
    display: flex;
    justify-content: center;
    align-items: center;
-   height: 16px;
-   width: 16px;
+   border-radius: 15%;
+   height: 25px;
+   width: 25px;
    padding: 10px 0;
    margin: 12px 0;
    border: none;
-}
+}         
 
-/*MAKE SURE TO ADD TOOLTIP FOR SOCIAL MEDIA ICONS */
-.tooltip {
-   visibility: hidden;
+/* interactive elements */
+.collapse {
+   color: #000 !important;
 }
-
-.tooltip:hover {
-   visibility: visibile !important;
+.card {
+   color: #fff !important;
+   background-color: #000 !important;
 }
 
 /* NAVIGATION BAR CLASSES END*/
@@ -89,7 +104,6 @@ body .col-10 {
 /* HOME PAGE CLASSES */
 .featuredContainer {
 /*This container holds and centers the featured images */
-   background-color: #EEE;
    display: flex; /* Allows for vertical distribution */
    justify-content: center; /* Distributes content evenly in the column */
    align-items: center; /* Aligning itmes to the start (left) */
@@ -122,7 +136,6 @@ body .col-10 {
 
 /* GALLERY PAGE CLASSES */
 .galleryContainer {
-   background-color: #EEE;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -152,7 +165,7 @@ body .col-10 {
    cursor: pointer;
 }
 
-/* Interactive elements */
+/* Interactive elements*/
 /* These classes are used to style gallery modals created by clicking on images */
 .modalOverlay {
 /* This class is used to create a full screen overlay for the modal which will contain the image */
@@ -211,7 +224,7 @@ body .col-10 {
    right: 2%;
    background-color: transparent;
    border: none;
-   color:#EEE;
+   color: #000;
    font-size: 2.5rem;
    cursor: pointer;
    z-index: 1002; /* Ensure class is top of other elements */
@@ -239,11 +252,11 @@ body .col-10 {
 
 .bi-chevron-compact-left, .bi-chevron-compact-right{
    font-size: 2rem;
-   color: #fff;
+   color: #000;
 }
 .bi-chevron-compact-left:hover, .bi-chevron-compact-right:hover {
    background-color: rgba(0, 0, 0, 0.5);
-   color: #fff;
+   color: #000;
 }
 /* interactive elements END */
 
@@ -254,23 +267,51 @@ body .col-10 {
    background-color: #EEE;
    display: flex;
    align-items: center;
+   height: 100vh; /* Ensure full viewport height */
+   overflow: hidden; /* Prevent content from spilling out */
 }
 
-.contactContentContainer {
+.contactContentContainer-flex {
+   display: flex;
+   flex-direction: column;
+   position: relative;
    height: 100vh;
+   width: 100%;
+   padding: 20px;
+   box-sizing: border-box;
 }
 
 .calendly-inline-widget {
-   width: 80%;
-   height: 80%;
-   margin: auto; 
-   align-content: center !important;
+   position: relative; /* Change from absolute to relative */
+   flex: 1; /* Take up remaining space */
+   height: 400px;
+   width: 100%;
+   margin-top: 20px;
+}
+/* Grabbed from claude to fix height stretch problem on Mac OS */
+@media screen and (max-width: 768px) {
+   .contactContainer {
+       /* Use smaller viewport unit for mobile to account for browser UI */
+       height: 100svh; /* Small viewport height - excludes dynamic UI */
+       height: 100vh; /* Fallback */
+   }
+   
+   .contactContentContainer-flex {
+       height: 100svh;
+       height: 100vh; /* Fallback */
+       padding: 15px; /* Reduce padding on mobile */
+   }
+   
+   .calendly-inline-widget {
+       height: 350px; /* Smaller height for mobile */
+       min-height: 300px;
+       max-height: calc(100vh - 150px);
+   }
 }
 /* CONTACT PAGE CLASSES END*/
 
 /* ABOUT PAGE CLASSES */
 .aboutContentContainer {
-   background-color: #EEE !important;
    display: flex;
    align-content: center;
    justify-content: center;
