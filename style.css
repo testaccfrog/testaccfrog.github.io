@@ -286,7 +286,8 @@ body .col-10 {
 .calendly-inline-widget {
    position: relative; /* Change from absolute to relative */
    flex: 1; /* Take up remaining space */
-   height: 400px;
+   min-height: 400px;
+   max-height: calc(100vh - 150px);
    width: 100%;
    margin-top: 20px;
 }
