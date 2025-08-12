@@ -5,10 +5,31 @@ COLOR PALETTE OPTIONS: Two tone
  #2D2926, #ed6f63 Black brown-red, and light pastelish-red
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-dark: #1a1a1a;
+    --primary-light: #ffffff;
+    --accent-gray: #f8f9fa;
+    --text-gray: #6c757d;
+    --border-light: #e9ecef;
+}
+
 html, body{
    height: 100%;
    color: #000;
    background-color: #fff;
+}
+
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+h1 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
 }
 
 h1 {
@@ -23,13 +44,15 @@ p {
 }
 
 a {
-   color: #000;
+   color: #fff;
    text-align: center;
+   padding: 0px;
 }
 
 body .col-10 {
-   background-color: #eee !important;
+   background-color: var(--primary-light) !important;
 }
+
 
 /* NAVIGATION BAR CLASSES START*/
 .navSideContainer {
@@ -38,6 +61,8 @@ body .col-10 {
    align-items: center;
    justify-content: center;
    height: 100vh; /* 65% height of the viewport */
+   background-color: var(--accent-gray);
+   border-right: 1px solid var(--border-light);
 }
 
 .navSide {
@@ -48,27 +73,40 @@ body .col-10 {
    align-items: center; /* Aligning itmes to the start (left) */
 }
 
-.navSide a {
-   padding: 10px 0;
-   display: block; 
-   text-decoration: none;
-   text-align: center;
-}
-.navSide a:hover {
-   text-decoration: underline;
-}
-
-.logo {
+.navSide a:not(.socialMedia a) {
    color: #000;
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 8px 20px;
+    border-radius: 50px; /* Perfect pill shape */
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    box-shadow: 0 4px 15px rgb(0, 0, 0, .1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.logo :hover {
-   text-decoration: none !important;
+.navSide a:not(.socialMedia a):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px ;
+    color: white;
+    background-color: #000;
+    text-decoration: none;
+    opacity: .9;
+}
+
+.logo a{
+   position: relative;
+   text-decoration: none;
+   color: #fff;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-weight: 700;
+   font-size: 1.2rem;
+   letter-spacing: -0.01em;
 }
 
 .socialMedia {
-   color: #000;
+   color: #fff;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -76,6 +114,20 @@ body .col-10 {
    margin-top: 50px;
 }
 .icons {
+   color: #000;
+   background-color: #fff;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 15%;
+   height: 25px;
+   width: 25px;
+   padding: 10px 0;
+   margin: 12px 0;
+   border: none;
+}      
+
+.icons:hover{
    color: #fff;
    background-color: #000;
    display: flex;
@@ -87,7 +139,7 @@ body .col-10 {
    padding: 10px 0;
    margin: 12px 0;
    border: none;
-}         
+}  
 
 /* interactive elements */
 .collapse {
@@ -110,17 +162,61 @@ body .col-10 {
    justify-content: space-around; /* Distributes content evenly in the column */
    align-items: center; /* Aligning itmes to the start (left) */
    z-index: 1001;
+    color: #000;
 }
 
-.homeNav a {
-   padding: 10px 0;
-   display: block; 
+/* Cool buttons affects. Not needed for this project 
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    
+*/
+.homeNav a:not(.socialMedia a) {
+    padding: 8px 20px;
+    border-radius: 50px; /* Perfect pill shape */
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+    box-shadow: 0 4px 15px rgb(0, 0, 0, .7);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.homeNav a:not(.socialMedia a):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px ;
+    color: white;
+    background-color: #000;
+    text-decoration: none;
+    opacity: .9;
+}
+
+.homeLogo a{
+   position: relative;
    text-decoration: none;
-   text-align: center;
+   color: #fff;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-weight: 700;
+   font-size: 1.2rem;
+   letter-spacing: -0.01em;
 }
-.homeNav a:hover {
-   text-decoration: underline;
+
+.homeLogo a::before {
+   content: "View Gallery";
+   position: absolute;
+   align-items: center;
+   justify-content: center;
+   opacity: 0;
+   color: #fff;
 }
+
+.homeLogo a:hover {
+   color: transparent !important;
+}
+
+.homeLogo a:hover::before {
+   opacity: 1;
+}
+
 
 .homeBackground {
 /*This container holds and centers the featured images */
@@ -149,8 +245,8 @@ body .col-10 {
 }
 
 .carousel-inner .carousel-item img {
-   height: 100%; /* This is the key: Prioritize filling the height */
-   width: auto;  /* Let width adjust automatically to maintain aspect ratio */
+   width: 100%; /* This is the key: Prioritize filling the height */
+   height: auto;  /* Let width adjust automatically to maintain aspect ratio */
    /*NOTE: set max-width between 25% and 50% to ensure it fits on screen vertically */
    max-width: 50%; /* Ensure it doesn't overflow horizontally if image is wider than container when scaled by height */
  }/* CAROUSEL CLASSES END */
@@ -168,7 +264,8 @@ body .col-10 {
 
 .galleryContainer .row .col-4 {
    background-color: #eee;
-   padding: 0 6px; /* Add some padding to the columns */
+   padding: 0 8px; /* Add some padding to the columns */
+   
 }
 
 .middleColumn {
@@ -185,6 +282,13 @@ body .col-10 {
    height: auto;  /* Let width adjust automatically to maintain aspect ratio */
    padding-top: 6px;
    cursor: pointer;
+   transition: transform 0.2s ease, box-shadow 0.2s ease;
+   border-radius: 25px;
+}
+
+.galleryImage img:hover {
+   transform: scale(1.02);
+   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Interactive elements*/
@@ -288,6 +392,7 @@ body .col-10 {
 .contactContainer {
    background-color: #EEE;
    display: flex;
+   justify-content: center;
    align-items: center;
    height: 100dvh;
    height: 100vh; /* Ensure full viewport height */
@@ -303,6 +408,26 @@ body .col-10 {
    width: 100%;
    padding: 20px;
    box-sizing: border-box;
+}
+
+.contactContent {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.contactContent h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--primary-dark);
+}
+
+.contactContent p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-gray);
+    max-width: 600px;
 }
 
 .calendly-inline-widget {
@@ -333,13 +458,6 @@ body .col-10 {
        max-height: calc(100vh - 150px);
    }
 
-.contactContent {
-   display: flex;
-   position: absolute;
-   flex-direction: column;
-   align-content: center;
-   justify-content: center;
-}
 }
 /* CONTACT PAGE CLASSES END*/
 
