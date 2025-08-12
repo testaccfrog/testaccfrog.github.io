@@ -102,14 +102,36 @@ body .col-10 {
 
 
 /* HOME PAGE CLASSES */
-.featuredContainer {
+.homeNav {
+/* This is the sidebar navigation */
+   display: flex; /* Allows for vertical distribution */
+   position: absolute;
+   flex-direction: column; /* stacks content vertically */
+   justify-content: space-around; /* Distributes content evenly in the column */
+   align-items: center; /* Aligning itmes to the start (left) */
+   z-index: 1001;
+}
+
+.homeNav a {
+   padding: 10px 0;
+   display: block; 
+   text-decoration: none;
+   text-align: center;
+}
+.homeNav a:hover {
+   text-decoration: underline;
+}
+
+.homeBackground {
 /*This container holds and centers the featured images */
    display: flex; /* Allows for vertical distribution */
+   position: absolute;
    justify-content: center; /* Distributes content evenly in the column */
    align-items: center; /* Aligning itmes to the start (left) */
    overflow: hidden;
    height: 100vh;
    margin: auto, 0;
+   z-index: 0;
 }
 
 /* CAROUSEL CLASSES START */
@@ -287,7 +309,7 @@ body .col-10 {
    position: relative; /* Change from absolute to relative */
    flex: 1; /* Take up remaining space */
    min-height: 400px;
-   max-height: calc(100vh - 150px);
+   max-height: calc(100vh - 150px); /* fixes static widget height problem*/
    width: 100%;
    margin-top: 20px;
 }
@@ -310,12 +332,27 @@ body .col-10 {
        min-height: 300px;
        max-height: calc(100vh - 150px);
    }
+
+.contactContent {
+   display: flex;
+   position: absolute;
+   flex-direction: column;
+   align-content: center;
+   justify-content: center;
+}
 }
 /* CONTACT PAGE CLASSES END*/
 
 /* ABOUT PAGE CLASSES */
+
+.centerAbout {
+   display: flex;
+   justify-content: center;
+}
+
 .aboutContentContainer {
    display: flex;
+   position: absolute;
    align-content: center;
    justify-content: center;
    text-align: center;
@@ -324,23 +361,33 @@ body .col-10 {
    width: auto;
 }
 
-.aboutContentContainer img{
-   width: 100%; /* This is the key: Prioritize filling the height */
-   height: auto;  /* Let width adjust automatically to maintain aspect ratio */
-}
-
-.aboutContentContainer .col-5 {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-}
-
 .aboutContent {
    display: flex;
+   position: absolute;
    flex-direction: column;
-   align-items: center;
+   align-content: center;
    justify-content: center;
+   z-index: 1001;
+   padding-top: 40%;
+   padding-left: 8px;
+   padding-right: 8px;
+}
+.aboutContent p, .aboutContent h1{
+   color: #000;
+   display: flex;
+   flex-direction: column;
+   align-content: center;
+   align-items: center;
+   padding-bottom: 3%;
+}
+
+.aboutPFP {
+   display:flex;
+   justify-content: center;
+   width: 100%; /* This is the key: Prioritize filling the height */
+   height: auto;  /* Let width adjust automatically to maintain aspect ratio */
+   opacity: 35%;
+   z-index: 0;
 }
 /* ABOUT PAGE CLASSES END */
 
