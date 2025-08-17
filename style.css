@@ -178,8 +178,11 @@ body .col-10 {
     text-decoration: none;
     display: inline-block;
     margin: 5px;
-    box-shadow: 0 4px 15px rgb(0, 0, 0, .7);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Creates glossy glass button */
+    background-color: rgb(255,255,255, .15); /* Transparent color rgb (color, opacity) */
+    backdrop-filter: blur(5px); /* background blur */
+    box-shadow: 0 4px 15px rgb(0, 0, 0, .7); /* shadow affect around a "button" */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Transitions button ease-in-out functionality */
 }
 
 .homeNav a:not(.socialMedia a):hover {
@@ -222,7 +225,7 @@ body .col-10 {
 .homeBackground {
 /*This container holds and centers the featured images */
    display: flex; /* Allows for vertical distribution */
-   position: absolute;
+   position: relative;
    justify-content: center; /* Distributes content evenly in the column */
    align-items: center; /* Aligning itmes to the start (left) */
    overflow: hidden;
@@ -232,25 +235,22 @@ body .col-10 {
 }
 
 /* CAROUSEL CLASSES START */
-.carousel-inner {
-    height: 100%; /* Make the inner part of the carousel take full height */
+
+.carousel-inner .carousel-item { /* these classes require the same css adjustments */
+   /* contains .featuredImages and allows for responsiveness without breaking format. */
+   height: 100vh; /*contains image within .carouselitem*/
+   display: flex;
+   align-items: center; /* prevents button from being positioned at top */
+   justify-content: center; /* center image within carousel and inner divs */
 }
 
-.carousel-inner .carousel-item {
-    height: 100%; /* Each carousel item should take full height */
-    width: auto;
-    display: flex; /* Use flexbox to center the image within the item */
-    justify-content: center; /* Center image horizontally */
-    align-items: center; /* Center image vertically */
-    max-width: 100%;
-}
-
-.carousel-inner .carousel-item img {
-   width: 100%; /* This is the key: Prioritize filling the height */
-   height: auto;  /* Let width adjust automatically to maintain aspect ratio */
-   /*NOTE: set max-width between 25% and 50% to ensure it fits on screen vertically */
-   max-width: 50%; /* Ensure it doesn't overflow horizontally if image is wider than container when scaled by height */
- }/* CAROUSEL CLASSES END */
+/*same as: .carousel-inner .carousel-item img*/ 
+.featuredImages {
+   max-width: 100%;
+   max-height: 100%;
+   width: auto;
+   height: auto;
+}/* CAROUSEL CLASSES END */
 /* HOME PAGE CLASSES END */
 
 /* GALLERY PAGE CLASSES */
@@ -384,9 +384,7 @@ body .col-10 {
 .bi-chevron-compact-left:hover, .bi-chevron-compact-right:hover {
    background-color: rgba(0, 0, 0, 0.5);
    color: #1a1a1a;
-}
-/* interactive elements END */
-
+}/* interactive elements END */
 /* GALLERY PAGE CLASSES END */
 
 /* CONTACT PAGE CLASSES START*/
