@@ -235,6 +235,9 @@ body .col-10 {
 }
 
 /* CAROUSEL CLASSES START */
+.carousel-item {
+   transition: transform 2s ease, opacity .5s ease-out
+}
 
 .carousel-inner .carousel-item { /* these classes require the same css adjustments */
    /* contains .featuredImages and allows for responsiveness without breaking format. */
@@ -242,6 +245,7 @@ body .col-10 {
    display: flex;
    align-items: center; /* prevents button from being positioned at top */
    justify-content: center; /* center image within carousel and inner divs */
+   
 }
 
 /*same as: .carousel-inner .carousel-item img*/ 
