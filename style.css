@@ -53,14 +53,43 @@ body .col-10 {
    background-color: #ffffff !important;
 }
 
+body .max-width-768px {
+   display: none;
+}
+
+@media screen and (max-width: 768px) {
+   body .col-10 {
+      display: none;
+   }
+   body .col-2 {
+      display: none;
+   }
+
+   body .max-width-768px {
+      display: flex !important;
+      justify-content: center;
+   }
+   .navSide a .nav-link-active {
+   color: #ffffff !important;
+   background-color: #1a1a1a !important;
+   }
+
+   .card {
+      color: #ffffff;
+      background-color: rgb(255,255,255, .20);
+      backdrop-filter: blur(10px);
+   }
+
+}
 
 /* NAVIGATION BAR CLASSES START*/
+
 .navSideContainer {
 /* This container holds and centers the navigation sidebar */
    display: flex;
    align-items: center;
    justify-content: center;
-   height: 100vh; /* 65% height of the viewport */
+   height: 100vh;
    background-color: var(--accent-gray);
    border-right: 1px solid var(--border-light);
 }
@@ -73,26 +102,33 @@ body .col-10 {
    align-items: center; /* Aligning itmes to the start (left) */
 }
 
-.navSide a:not(.socialMedia a) {
+/* Nav a "Buttons" */
+.navSide a:not(.socialMedia a)  {
    color: #1a1a1a;
-    padding: 8px 20px;
-    border-radius: 50px; /* Perfect pill shape */
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
-    margin: 5px;
-    box-shadow: 0 4px 15px rgb(0, 0, 0, .1);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+   padding: 8px 20px;
+   border-radius: 50px; /* Perfect pill shape */
+   font-size: 16px;
+   font-weight: 600;
+   text-decoration: none;
+   display: inline-block;
+   background-color: rgb(255,255,255); /* Transparent color rgb (color, opacity) */
+   margin: 5px;
+   box-shadow: 0 4px 15px rgb(0, 0, 0, .1);
+   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.navSide a:not(.socialMedia a):hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px ;
-    color: white;
-    background-color: #1a1a1a;
-    text-decoration: none;
-    opacity: .9;
+.navSide a:not(.nav-link):not(.socialMedia a):not(.logo a) {
+   color: #ffffff !important;
+   background-color: #1a1a1a !important;
+}
+
+.navSide a:not(.socialMedia a):not(.nav-link-active):hover {
+   transform: translateY(-2px);
+   box-shadow: 0 8px 25px ;
+   color: white;
+   background-color: #1a1a1a;
+   text-decoration: none;
+   opacity: .9;
 }
 
 .logo a{
@@ -114,8 +150,6 @@ body .col-10 {
    margin-top: 50px;
 }
 .icons {
-   color: #1a1a1a;
-   background-color: #ffffff;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -125,11 +159,13 @@ body .col-10 {
    padding: 10px 0;
    margin: 12px 0;
    border: none;
+   color: #1a1a1a;
+   background-color: #ffffff;
+   box-shadow: 0 4px 15px rgb(0, 0, 0, .1);
+   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Rate at which colors transition and reposition of icon on hover*/
 }      
 
 .icons:hover{
-   color: #ffffff;
-   background-color: #1a1a1a;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -139,21 +175,68 @@ body .col-10 {
    padding: 10px 0;
    margin: 12px 0;
    border: none;
+   color: #ffffff;
+   background-color: #1a1a1a;
+   transform: translateY(-2px); /* trasnlates in specified direction x pixels */
 }  
 
-/* interactive elements */
-.collapse {
-   color: #1a1a1a !important;
+.burger {
+   position: absolute;
+   top: 12px;
+   left: 14px;
+   height: 45px;
+   width: 45px;
+   z-index: 1001;
+   color: #1a1a1a;
+   background-color: #e9ecef;
+   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Rate at which colors transition and reposition of icon on hover*/
 }
+.burger:hover {
+   position: absolute;
+   height: 45px;
+   width: 45px;
+   z-index: 1001;
+   color: #e9ecef;
+   background-color: #1a1a1a;
+   transform: translateY(-2px); /* trasnlates in specified direction x pixels */
+}
+
+.collapse {
+   color: #e9ecef;
+}
+
+.collapseContainer {
+   position: absolute;
+   top: 63px;
+   left: 14px;
+   z-index: 1001;
+}
+
 .card {
-   color: #ffffff !important;
-   background-color: #1a1a1a !important;
+   color: #1a1a1a;
+   background-color: rgb(255,255,255, .20);
+   backdrop-filter: blur(10px);
 }
 
 /* NAVIGATION BAR CLASSES END*/
 
 
 /* HOME PAGE CLASSES */
+.title {
+   display: flex;
+   position: absolute;
+   justify-content: center;
+   top: 25%;
+   padding: 4px 10px 4px 10px;
+   border-radius: 50px;
+   z-index: 1001;
+}
+
+.title h1 {
+   color: #1a1a1a;
+   text-shadow: 0 10px 25px rgba(255, 255, 255, 0.7);
+}
+
 .homeNav {
 /* This is the sidebar navigation */
    display: flex; /* Allows for vertical distribution */
@@ -162,7 +245,7 @@ body .col-10 {
    justify-content: space-around; /* Distributes content evenly in the column */
    align-items: center; /* Aligning itmes to the start (left) */
    z-index: 1001;
-    color: #1a1a1a;
+   color: #1a1a1a;
 }
 
 /* Cool buttons affects. Not needed for this project 
@@ -178,9 +261,10 @@ body .col-10 {
     text-decoration: none;
     display: inline-block;
     margin: 5px;
+    color: #1a1a1a;
     /* Creates glossy glass button */
-    background-color: rgb(255,255,255, .15); /* Transparent color rgb (color, opacity) */
-    backdrop-filter: blur(5px); /* background blur */
+    background-color: rgb(255,255,255, .20); /* Transparent color rgb (color, opacity) */
+    backdrop-filter: blur(10px); /* background blur */
     box-shadow: 0 4px 15px rgb(0, 0, 0, .7); /* shadow affect around a "button" */
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Transitions button ease-in-out functionality */
 }
@@ -193,34 +277,6 @@ body .col-10 {
     text-decoration: none;
     opacity: .9;
 }
-
-.homeLogo a{
-   position: relative;
-   text-decoration: none;
-   color: #ffffff;
-   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-   font-weight: 700;
-   font-size: 1.2rem;
-   letter-spacing: -0.01em;
-}
-
-.homeLogo a::before {
-   content: "View Gallery";
-   position: absolute;
-   align-items: center;
-   justify-content: center;
-   opacity: 0;
-   color: #ffffff;
-}
-
-.homeLogo a:hover {
-   color: transparent !important;
-}
-
-.homeLogo a:hover::before {
-   opacity: 1;
-}
-
 
 .homeBackground {
 /*This container holds and centers the featured images */
@@ -297,7 +353,7 @@ body .col-10 {
 }
 
 /* Interactive elements*/
-/* These classes are used to style gallery modals created by clicking on images */
+/* These classes are used to style gallery modal created by clicking on images */
 .modalOverlay {
 /* This class is used to create a full screen overlay for the modal which will contain the image */
    position: relative;
@@ -351,16 +407,22 @@ body .col-10 {
 
 .modalCloseButton {
    position: absolute;
-   top: 0;
-   right: 2%;
+   top: 12px;
+   right: 14px;
    background-color: transparent;
    border: none;
-   color: #1a1a1a;
-   font-size: 2.5rem;
+   color: #ffffff;
+   font-size: 1.5rem;
    cursor: pointer;
    z-index: 1002; /* Ensure class is top of other elements */
    visibility: hidden;
    transition: background-color 0.2s ease;
+}
+
+.modalCloseButton:hover {
+   border-radius: 5px;
+   background-color: rgba(255, 255, 255, 0.4);
+   color: #1a1a1a;
 }
 
 #prevButton, #nextButton {
@@ -383,17 +445,18 @@ body .col-10 {
 
 .bi-chevron-compact-left, .bi-chevron-compact-right{
    font-size: 2rem;
-   color: #1a1a1a;
+   color: #ffffff;
 }
 .bi-chevron-compact-left:hover, .bi-chevron-compact-right:hover {
-   background-color: rgba(0, 0, 0, 0.5);
+   border-radius: 5px;
+   background-color: rgba(255, 255, 255, 0.4);
    color: #1a1a1a;
 }/* interactive elements END */
 /* GALLERY PAGE CLASSES END */
 
 /* CONTACT PAGE CLASSES START*/
 .contactContainer {
-   background-color: #EEE;
+   background-color: #ffffff;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -497,7 +560,7 @@ body .col-10 {
    position: absolute; /* needed to display aboutTextOverlay*/
    flex-direction: column;
    height: auto;
-   z-index: 1001; /* setting z-index determines which elements are on top*/
+   z-index: 1000; /* setting z-index determines which elements are on top*/
    padding-left: 8px;
    padding-right: 8px;
 }
