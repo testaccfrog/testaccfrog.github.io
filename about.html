@@ -3,7 +3,7 @@
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta charset="UTF-8">
-      <title>Abel's Gallery</title>
+      <title>Abel's Photography</title>
 
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -18,11 +18,11 @@
          <div class="navSideContainer col-2">  
             <div class="navSide">
                <div class="logo">
-                  <a href="index.html">Abel's Gallery</a>
+                  <a href="index.html">Abel's Photography</a>
                </div>
                <a href="gallery.html" class="nav-link">Gallery</a>
                <a href="contact.html" class="nav-link">Contact</a>
-               <a href="about.html" class="nav-link">About</a>
+               <a href="about.html" class="nav-link-active">About</a>
                <div class="socialMedia"> <!-- FIX ICONS AND MAKE LOOK NEET -->
                   <button class="bi bi-envelope-at icons" data-bs-toggle="collapse" data-bs-target="#iconEmail" aria-expanded="false" aria-controls="button1"></button>
                   <div style="min-height: 0px; max-width: 300px;">
@@ -45,8 +45,71 @@
             </div>
          </div> <!-- End of Navigation Bar -->
 
+         <!-- About Page Content -->
          <div class="col-10">
             <div class="aboutContentContainer">
+               <div class="aboutContent">
+               </div>   
+               <div class="profileImageContainer">
+                  <div class="aboutTextOverlay">
+                  <h1 class="Heading">Abel Ovalle</h1>
+                  <p>Hi, my name is Abel Ovalle! I'm a photographer located in the San Antonio
+                     area. I am currently a student at Texas Lutheran University pursuing a nursing
+                     degree. I have been taking pictures for about 6 years now, and I have found a
+                     deeper connection with this hobby over the years. I have been viewing life through
+                     a lens and have managed to capture such beautiful moments. I hope I can capture
+                     your moments the same way I have learned to capture mine!
+                  </p>
+                  </div>
+                  <img src="Abel_PFP_y.JPG" class="img-fluid" id="childProfileImageContainer" alt="Portrait Image">
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Smaller devices layout-->
+      <div class="max-width-768px">  <!-- Begin Nav List-->
+         <p>   
+            <button class="btn burger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBurger" aria-expanded="false" aria-controls="collapseBurger">
+               <i class="bi bi-list"></i>
+            </button>
+         </p>
+         <div class="collapseContainer">
+            <div class="collapse collapse-horizontal" id="collapseBurger">
+               <div class="card card-body" style="width: 300px;">
+                  <div class="navSide">
+                     <div class="logo">
+                        <a href="index.html">Abel's Photography</a>
+                     </div>
+                     <a href="gallery.html" class="nav-link">Gallery</a>
+                     <a href="contact.html" class="nav-link">Contact</a>
+                     <a href="about.html" class="nav-link-active">About</a>
+                     <div class="socialMedia"> <!-- FIX ICONS AND MAKE LOOK NEET -->
+                        <button class="bi bi-envelope-at icons" data-bs-toggle="collapse" data-bs-target="#iconEmail" aria-expanded="false" aria-controls="button1"></button>
+                        <div style="min-height: 0px; max-width: 300px;">
+                           <div class="collapse collapse-horizontal" id="iconEmail">
+                              <div class="card card-body" style="width: 200px; align-items: center;">
+                                 Abelovalle45@gmail.com
+                              </div>
+                           </div>
+                        </div>
+                        <button class="bi bi-telephone-inbound icons" data-bs-toggle="collapse" data-bs-target="#iconPhone" aria-expanded="false" aria-controls="collapseWidthExample"></button>
+                        <div style="min-height: 0px; max-width: 300px;">
+                        <div class="collapse collapse-horizontal" id="iconPhone">
+                           <div class="card card-body" style="width: 150px; align-items: center;">
+                              (210) 847-1786
+                           </div>
+                        </div>
+                        </div>
+                        <a href="https://www.instagram.com/just_take_the_photo45/" target="_blank"><button class="bi bi-instagram icons"></button></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- About Page Content -->
+         <div class="aboutContentContainer">
                <div class="aboutContent">
                </div>   
                <div class="profileImageContainer">
