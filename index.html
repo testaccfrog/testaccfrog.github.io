@@ -11,52 +11,70 @@
    </head>
 
    <body>
-   
-   <div class="container-fluid">
+      <div class="roundabout-container">
 
-      <div class="homeBackground">
-         <div class="title">
-            <h1>Abel's Photography</h1>
-         </div>
-         <div id="carouselExampleFade" class="carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="4500" data-bs-pause="false">
-            <div class="carousel-inner">
-               <div class="carousel-item active">
-                  <div class="homeNav">
-                        <a href="gallery.html">View Gallery</a>
+         <div class="roundabout-item">
+            <div class="image-container">
+               <img src="SPV_Campaign3_y.jpg" alt="Image 1" class="roundabout-image active" data-index="0">
+               <img src="Portrait5_y.JPG" alt="Image 2" class="roundabout-image" data-index="1">
+               <img src="Event_Sport_Soccer_y.jpg" alt="Image 3" class="roundabout-image" data-index="2">
+            </div>
+            <button class="btn burger" id="homeBurger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBurger" aria-expanded="false" aria-controls="collapseBurger">
+               <i class="bi bi-list"></i>
+            </button>
+            <div class="collapseContainer">
+               <div class="collapse collapse-horizontal" id="collapseBurger">
+                  <div class="card card-body" style="width: 300px;">
+                     <div class="navSide">
+                        <a href="index.html" class="nav-link-active">Abel's Photography</a>
+                        <a href="gallery.html" class="nav-link">Gallery</a>
+                        <a href="contact.html" class="nav-link">Contact</a>
+                        <a href="about.html" class="nav-link">About</a>
+                        <div class="socialMedia"> <!-- FIX ICONS AND MAKE LOOK NEET -->
+                           <button class="bi bi-envelope-at icons" data-bs-toggle="collapse" data-bs-target="#iconEmail" aria-expanded="false" aria-controls="button1"></button>
+                           <div style="min-height: 0px; max-width: 300px;">
+                              <div class="collapse collapse-horizontal" id="iconEmail">
+                                 <div class="card card-body" style="width: 200px; align-items: center;">
+                                    Abelovalle45@gmail.com
+                                 </div>
+                              </div>
+                           </div>
+                           <button class="bi bi-telephone-inbound icons" data-bs-toggle="collapse" data-bs-target="#iconPhone" aria-expanded="false" aria-controls="collapseWidthExample"></button>
+                           <div style="min-height: 0px; max-width: 300px;">
+                           <div class="collapse collapse-horizontal" id="iconPhone">
+                              <div class="card card-body" style="width: 150px; align-items: center;">
+                                 (210) 847-1786
+                              </div>
+                           </div>
+                           </div>
+                           <a href="https://www.instagram.com/just_take_the_photo45/" target="_blank"><button class="bi bi-instagram icons"></button></a>
+                        </div>
+                     </div>
                   </div>
-                  <img src="SPV_Campaign3_y.jpg" class="featuredImages" alt="...">
                </div>
-               <div class="carousel-item">
-                  <div class="homeNav">
-                        <a href="gallery.html">View Gallery</a>
-                  </div>
-                  <img src="Portrait5_y.JPG" class="featuredImages" alt="...">
-               </div>
-               <div class="carousel-item">
-                  <div class="homeNav">
-                        <a href="gallery.html">View Gallery</a>
-                  </div>
-                  <img src="Event_Sport_Soccer_y.jpg" class="featuredImages" alt="...">
-                  </div>
-               </div>
-               <button class="carousel-control-prev button-featured-next" type="button"  data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                  <i class="bi bi-chevron-compact-left"></i>
-                  <span class="visually-hidden">Previous</span>
-               </button>
-               <button class="carousel-control-next button-featured-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                  <i class="bi bi-chevron-compact-right"></i>
-                  <span class="visually-hidden">Next</span>
-               </button>
+            </div>
+            <div class="title">
+               <h1>Abel's Photography</h1>
+            </div>
+            <div class="homeNav">
+               <a href="gallery.html">View Gallery</a>
             </div>
          </div>
+         <button id="prev-button">            
+               <i class="bi bi-chevron-compact-left"></i>
+         </button>
+         <button id="next-button">
+               <i class="bi bi-chevron-compact-right"></i>
+         </button>
       </div>
-   </div>
 
    <!-- Load jQuery first to prevent "uncaughtReference error" (load first to be able to use jQuery library in other js files)-->
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
    
    <!-- Load bootstrap second -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+   <script src="roundabout.js"></script>
 
    </body>
 </html>

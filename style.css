@@ -188,9 +188,11 @@ body .max-width-768px {
    width: 45px;
    z-index: 1001;
    color: #1a1a1a;
-   background-color: #e9ecef;
+   background-color: rgba(255, 255, 255, 0.2) !important;
+   backdrop-filter: blur(10px) !important;
    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Rate at which colors transition and reposition of icon on hover*/
 }
+
 .burger:hover {
    position: absolute;
    height: 45px;
@@ -201,6 +203,36 @@ body .max-width-768px {
    transform: translateY(-2px); /* trasnlates in specified direction x pixels */
 }
 
+#homeBurger {
+   position: absolute;
+   top: 12px;
+   left: 14px;
+   height: 45px;
+   width: 45px;
+   z-index: 1001;
+   color: #1a1a1a;
+   background-color: #e9ecef;
+   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Rate at which colors transition and reposition of icon on hover*/
+}
+
+#homeBurger:hover {
+   position: absolute;
+   height: 45px;
+   width: 45px;
+   z-index: 1001;
+   color: #e9ecef;
+   background-color: #1a1a1a;
+   transform: translateY(-2px); /* trasnlates in specified direction x pixels */
+}
+
+.bi-list {
+   font-size: large;
+   font-weight: bold;
+   color: black;
+}
+
+
+
 .collapse {
    color: #e9ecef;
 }
@@ -209,7 +241,7 @@ body .max-width-768px {
    position: absolute;
    top: 63px;
    left: 14px;
-   z-index: 1001;
+   z-index: 1002;
 }
 
 .card {
@@ -226,15 +258,16 @@ body .max-width-768px {
    display: flex;
    position: absolute;
    justify-content: center;
-   top: 25%;
+   top: 23%;
    padding: 4px 10px 4px 10px;
    border-radius: 50px;
    z-index: 1001;
 }
 
 .title h1 {
-   color: #1a1a1a;
-   text-shadow: 0 10px 25px rgba(255, 255, 255, 0.7);
+   position: absolute;
+   color: rgb(0, 0, 0, .75);
+   text-shadow: 0 10px 25px rgba(255, 255, 255, 0.9);
 }
 
 .homeNav {
@@ -278,39 +311,62 @@ body .max-width-768px {
     opacity: .9;
 }
 
-.homeBackground {
-/*This container holds and centers the featured images */
-   display: flex; /* Allows for vertical distribution */
+/* Roundabout CLASSES START */
+.roundabout-container {
    position: relative;
-   justify-content: center; /* Distributes content evenly in the column */
-   align-items: center; /* Aligning itmes to the start (left) */
-   overflow: hidden;
-   height: 100vh;
-   margin: auto, 0;
-   z-index: 0;
+   width: 100vw;    /* Full viewport width */
+   height: 100vh;   /* Full viewport height */
+   overflow: hidden;  /* Hide any overflow from the image */
 }
 
-/* CAROUSEL CLASSES START */
-.carousel-item {
-   transition: transform 2s ease, opacity .5s ease-out
+.roundabout-item {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
 }
 
-.carousel-inner .carousel-item { /* these classes require the same css adjustments */
-   /* contains .featuredImages and allows for responsiveness without breaking format. */
-   height: 100vh; /*contains image within .carouselitem*/
-   display: flex;
-   align-items: center; /* prevents button from being positioned at top */
-   justify-content: center; /* center image within carousel and inner divs */
-   
+.image-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
 }
 
-/*same as: .carousel-inner .carousel-item img*/ 
-.featuredImages {
-   max-width: 100%;
-   max-height: 100%;
-   width: auto;
-   height: auto;
-}/* CAROUSEL CLASSES END */
+.roundabout-image {
+    position: absolute;  /* Stacks  images on top of eachother for "Dissolve" transition effect */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 2s cubic-bezier(0.25, 0.46, 0.49, 0.94); /* Smooth in out transition */
+    z-index: 1;
+}
+
+.roundabout-image.active {
+    opacity: 1;
+    z-index: 2;  /* Active image on top */
+}
+
+
+#next-button, #prev-button {
+   position: absolute;
+   top: 50%;
+   background-color: transparent;
+   border: none;
+   font-size: 2rem;
+   cursor: pointer;
+   z-index: 1000; /* Makes buttons visible */
+}
+#next-button{
+   right: 20px;
+}
+
+#prev-button{
+   left: 20px;
+}/* Roundabout CLASSES END */
 /* HOME PAGE CLASSES END */
 
 /* GALLERY PAGE CLASSES */
@@ -444,8 +500,10 @@ body .max-width-768px {
 }
 
 .bi-chevron-compact-left, .bi-chevron-compact-right{
+   font-weight: bold;
    font-size: 2rem;
-   color: #ffffff;
+   color: rgb(255,255,255, .60);
+   backdrop-filter: blur(50px);
 }
 .bi-chevron-compact-left:hover, .bi-chevron-compact-right:hover {
    border-radius: 5px;
@@ -551,7 +609,7 @@ body .max-width-768px {
    max-height: 100%;
    width: auto;
    height: auto;
-   opacity: 20%;
+   opacity: 100%;
 }
 
 .aboutTextOverlay {
@@ -563,6 +621,9 @@ body .max-width-768px {
    z-index: 1000; /* setting z-index determines which elements are on top*/
    padding-left: 8px;
    padding-right: 8px;
+   border-radius: 10px;
+   background-color: rgb(255,255,255, .20);
+   backdrop-filter: blur(1.25px); /* background blur */
 }
 .aboutTextOverlay p, .aboutTextOverlay h1{
    /*marginal details for formatting */
