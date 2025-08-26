@@ -23,16 +23,13 @@ html, body{
 
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 h1 {
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-}
-
-h1 {
+   font-weight: 600;
+   letter-spacing: -0.02em;
+   line-height: 1.2;
    text-align: center;
 }
 
@@ -49,15 +46,23 @@ a {
    padding: 0px;
 }
 
+.container-fluid {
+   padding: 0 !important;
+   margin: 0 !important;
+   height: 100%;
+   width: 100%;
+   overflow: hidden;
+}
+
 body .col-10 {
    background-color: #ffffff !important;
 }
 
-body .max-width-768px {
+body .max-width-576px {
    display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 576px) {
    body .col-10 {
       display: none;
    }
@@ -65,7 +70,7 @@ body .max-width-768px {
       display: none;
    }
 
-   body .max-width-768px {
+   body .max-width-576px {
       display: flex !important;
       justify-content: center;
    }
@@ -77,7 +82,7 @@ body .max-width-768px {
    .card {
       color: #ffffff;
       background-color: rgb(255,255,255, .20);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(5px);
    }
 
 }
@@ -89,17 +94,29 @@ body .max-width-768px {
    display: flex;
    align-items: center;
    justify-content: center;
+   position: absolute;
+   top: 0;
+   left: 0;
+   overflow: hidden;
+   max-width: 16%; /* Adjust based on nav bar width */
    height: 100vh;
    background-color: var(--accent-gray);
-   border-right: 1px solid var(--border-light);
+   border-right: 1px solid var(--border-light); /* Light border on the right side (lovely subtle detail)*/
+   z-index: 1000; /* Ensures nav bar is on top of gallery images */
 }
 
 .navSide {
 /* This is the sidebar navigation */
    display: flex; /* Allows for vertical distribution */
    flex-direction: column; /* stacks content vertically */
-   justify-content: space-around; /* Distributes content evenly in the column */
+   justify-content: center; /* Distributes content evenly in the column */
    align-items: center; /* Aligning itmes to the start (left) */
+}
+
+.navSide a {
+   justify-content: center;
+   text-align: center;
+   padding-left: 5px;
 }
 
 /* Nav a "Buttons" */
@@ -149,6 +166,11 @@ body .max-width-768px {
    align-items: center;
    margin-top: 50px;
 }
+
+.socialMedia a {
+   text-decoration: none;
+   padding: 0;
+}
 .icons {
    display: flex;
    justify-content: center;
@@ -180,73 +202,56 @@ body .max-width-768px {
    transform: translateY(-2px); /* trasnlates in specified direction x pixels */
 }  
 
-.burger {
-   position: absolute;
-   top: 12px;
-   left: 14px;
-   height: 45px;
-   width: 45px;
-   z-index: 1001;
-   color: #1a1a1a;
-   background-color: rgba(255, 255, 255, 0.2) !important;
-   backdrop-filter: blur(10px) !important;
-   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Rate at which colors transition and reposition of icon on hover*/
-}
-
-.burger:hover {
-   position: absolute;
-   height: 45px;
-   width: 45px;
-   z-index: 1001;
-   color: #e9ecef;
-   background-color: #1a1a1a;
-   transform: translateY(-2px); /* trasnlates in specified direction x pixels */
-}
-
-#homeBurger {
-   position: absolute;
-   top: 12px;
-   left: 14px;
-   height: 45px;
-   width: 45px;
-   z-index: 1001;
-   color: #1a1a1a;
-   background-color: #e9ecef;
-   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Rate at which colors transition and reposition of icon on hover*/
-}
-
-#homeBurger:hover {
-   position: absolute;
-   height: 45px;
-   width: 45px;
-   z-index: 1001;
-   color: #e9ecef;
-   background-color: #1a1a1a;
-   transform: translateY(-2px); /* trasnlates in specified direction x pixels */
-}
-
+/* Burger Menu Button */
 .bi-list {
-   font-size: large;
-   font-weight: bold;
-   color: black;
-}
-
-
-
-.collapse {
-   color: #e9ecef;
-}
-
-.collapseContainer {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 45px;
+   width: 45px;
    position: absolute;
-   top: 63px;
+   top: 12px;
    left: 14px;
+   z-index: 1001;
+   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Rate at which colors transition and reposition of icon on hover*/
+   border-radius: 10px;
+   border-width: 1px;
+   border: 1px solid var(--text-gray);
+   font-weight: bold;
+   font-size: 1.5rem;
+   background-color: rgba(255, 255, 255, 0.6);
+   backdrop-filter: blur(5px);
+   color: #1a1a1a;
+}
+
+.bi-list:hover {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 45px;
+   width: 45px;
+   position: absolute;
+   top: 12px;
+   left: 14px;
+   z-index: 1001;
+   background-color: #1a1a1a;
+   color: rgba(255, 255, 255, 1);
+   transform: translateY(-2px);
+}
+
+
+/* Burger Menu Content */
+.collapseContainer {
+   position: absolute;  /*Allows container to be above other content */
+   top: 63px;  /* Positions container just below burger button */
+   left: 14px;  /* Aligns container with burger button */
    z-index: 1002;
 }
 
 .card {
    color: #1a1a1a;
-   background-color: rgb(255,255,255, .20);
+   /* Glossy glass effect */
+   background-color: rgb(255,255,255, .60);
    backdrop-filter: blur(10px);
 }
 
@@ -370,13 +375,31 @@ body .max-width-768px {
 /* HOME PAGE CLASSES END */
 
 /* GALLERY PAGE CLASSES */
+.scroll {
+   display: flex;
+   height: 100vh !important;
+   width: 100% !important;
+   overflow: hidden;
+}
+
+.scroll .row {
+   height: 100vh !important;
+   width: 100% !important;
+   overflow-x: hidden;
+   overflow-y: scroll;
+}
+
 .galleryContainer {
    display: flex;
    flex-direction: column;
    align-items: center;
-   text-align: center;
+   justify-content: center;
+   position: absolute;
+   left: 16.6%; /* Adjust based on nav bar width */
+   width: 83.4%; /* Adjust based on nav bar width */
    height: 100vh;
-   
+   overflow-x: hidden;
+   padding: 0 !important;
 }
 
 .galleryContainer .row .col-4 {
@@ -477,7 +500,7 @@ body .max-width-768px {
 
 .modalCloseButton:hover {
    border-radius: 5px;
-   background-color: rgba(255, 255, 255, 0.4);
+   background-color: rgba(255, 255, 255, 0.6);
    color: #1a1a1a;
 }
 
@@ -507,18 +530,20 @@ body .max-width-768px {
 }
 .bi-chevron-compact-left:hover, .bi-chevron-compact-right:hover {
    border-radius: 5px;
-   background-color: rgba(255, 255, 255, 0.4);
+   background-color: rgba(255, 255, 255, 0.60);
    color: #1a1a1a;
 }/* interactive elements END */
 /* GALLERY PAGE CLASSES END */
 
 /* CONTACT PAGE CLASSES START*/
 .contactContainer {
-   background-color: #ffffff;
    display: flex;
-   justify-content: center;
+   flex-direction: column;
    align-items: center;
-   height: 100dvh;
+   justify-content: center;
+   position: absolute;
+   left: 16.6%; /* Adjust based on nav bar width */
+   width: 83.4%; /* Adjust based on nav bar width */
    height: 100vh; /* Ensure full viewport height */
    overflow: hidden; /* Prevent content from spilling out */
 }
@@ -563,7 +588,7 @@ body .max-width-768px {
    margin-top: 20px;
 }
 /* Grabbed from claude to fix height stretch problem on Mac OS */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 576px) {
    .contactContainer {
        /* Use smaller viewport unit for mobile to account for browser UI */
        height: 100svh; /* Small viewport height - excludes dynamic UI */
@@ -590,10 +615,14 @@ body .max-width-768px {
 .aboutContentContainer {   
    /* Container to align image and text */
    display: flex;
-   position: relative; /* needed to display aboutTextOverlay*/
-   width: 100%;
-   justify-content: center;
+   flex-direction: column;
    align-items: center;
+   justify-content: center;
+   position: absolute;
+   left: 16.6%; /* Adjust based on nav bar width */
+   width: 83.4%; /* Adjust based on nav bar width */
+   height: 100vh; /* Ensure full viewport height */
+   overflow: hidden; /* Prevent content from spilling out */
 }
 
 .profileImageContainer {
@@ -622,13 +651,112 @@ body .max-width-768px {
    padding-left: 8px;
    padding-right: 8px;
    border-radius: 10px;
-   background-color: rgb(255,255,255, .20);
-   backdrop-filter: blur(1.25px); /* background blur */
+   background-color: rgb(255,255,255, .60);
+   backdrop-filter: blur(5px); /* background blur */
 }
 .aboutTextOverlay p, .aboutTextOverlay h1{
    /*marginal details for formatting */
    color: #1a1a1a;
    padding-bottom: 3%;
 }
+
+/* Hide mobile container and alternative columns by default */
+.aboutContainer {
+   display: none;
+}
+
+/* Default: Show col-2 and col-10 (for large screens > 768px) */
+.col-2 {
+   display: flex !important;
+}
+
+.col-10 {
+   display: flex !important;
+}
+
+/* Medium screens: 577px to 768px - Show col-3 and col-9 */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+   /* Override Bootstrap's col-2 to behave like col-3 */
+   .navSideContainer.col-2 {
+      flex: 0 0 22% !important; /* col-3 equivalent */
+      max-width: 22% !important;
+   }
+
+   .galNavSideContainer.col-2, .col-2 {
+      flex: 0 0 22% !important; /* col-3 equivalent */
+      max-width: 22% !important;
+   }
+   
+   /* Override Bootstrap's col-10 to behave like col-9 */
+   .col-10.aboutContentContainer, .col-10 {
+      flex: 0 0 78% !important; /* col-9 equivalent */
+      max-width: 78% !important;
+   }
+   
+   /* Keep desktop layout structure */
+   .aboutContainer {
+      display: none !important;
+   }
+
+}
+
+@media screen and (max-width: 576px) {
+   /* Hide all desktop columns */
+   .col-2, .col-10, .navSideContainer, .galNavSideContainer {
+      display: none !important;
+   }
+   .galleryContainer {
+      left: 0 !important; /* Full width for gallery on mobile */
+      width: 100% !important;
+   }
+   
+   /* Show mobile container */
+   .aboutContainer {
+      display: flex !important;
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+   }
+
+   .aboutContent {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      align-items: center;
+      justify-content: center;
+   overflow: hidden;
+   }
+
+   .aboutContent .image-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+   }
+
+   .profileImage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 1;
+   }
+
+   .aboutContainer .aboutTextOverlay {
+      display: flex;
+      position: absolute;
+      text-align: justify;
+      flex-direction: column;
+      height: auto;
+      z-index: 1000;
+      padding: 0 12px;
+      margin: 0 14px;
+      border-radius: 10px;
+      background-color: rgb(255,255,255, .60);
+      backdrop-filter: blur(5px);
+   }
+}
+
 /* ABOUT PAGE CLASSES END */
 
