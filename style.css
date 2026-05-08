@@ -255,6 +255,10 @@ body .max-width-576px {
    backdrop-filter: blur(10px);
 }
 
+.card a {
+   color: #1a1a1a;
+}
+
 /* NAVIGATION BAR CLASSES END*/
 
 

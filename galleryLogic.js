@@ -1,17 +1,20 @@
 $(document).ready(function() {
 
+      // Variables for modal elements
       let $modalOverlay = $('.modalOverlay');
       let $modalImageContainer = $('.modalImageContainer');
       let $modalCloseButton = $('.modalCloseButton');
       let $modalNextButton = $('.modalNextButton');
       let $modalPrevButton = $('.modalPrevButton');
    
+      //Gathering all images in the gallery into an array
       let modalImgArray = $('.galleryImage img');
       let currIndex;    
 
+      // Click event for making modaloverlay visibles and displaying clicked image
       $('.galleryImage img').on('click', function(){
             $('#modalImage').attr('src', $(this).attr('src'));
-            currIndex = $(this).index('.galleryImage img');
+            currIndex = $(this).index('.galleryImage img'); // Grabs the index of the clicked image
             $modalOverlay.css('visibility', 'visible');
             $modalImageContainer.css('visibility', 'visible');
             $('#modalImage').css('visibility', 'visibile');
