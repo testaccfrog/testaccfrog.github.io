@@ -1,6 +1,5 @@
 User-agent: *
 
-Allow: /src/
 Allow: /images/admin/
 
 Disallow: /images/clients/
