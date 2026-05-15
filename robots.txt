@@ -1,0 +1,8 @@
+User-agent: *
+
+Allow: /src/
+Allow: /images/admin/
+
+Disallow: /images/clients/
+
+Sitemap: https://abelsvisualsandportraits.com/sitemap.xml
