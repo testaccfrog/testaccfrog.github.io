@@ -2,12 +2,12 @@ $(document).ready(function() {
 
       let $emailCollapse = $('#iconEmail');
       let $phoneCollapse = $('#iconPhone');
-      let $emailButton = $('[data-bs-target="#iconEmail"]')
-      let $phoneButton = $('[data-bs-target="#iconPhone"]')
-      // [] are used a selector to select HTML elements based of specified attribute
+      let $instaCollapse = $('#iconInsta');
 
+      let $emailButton = $('[data-bs-target="#iconEmail"]');
+      let $phoneButton = $('[data-bs-target="#iconPhone"]');
+      let $instaButton = $('[data-bs-target="#iconInsta"]');
 
-      // Auto closes open collapse els when any other part of doc is pressed
       $(document).on('click', function(event){
             if ($emailCollapse.hasClass('show') && !$emailCollapse.is(event.target) && !$emailCollapse.has(event.target).length && !$emailButton.is(event.target)){
                   const emailCollapseInstance = bootstrap.Collapse.getInstance($emailCollapse[0]);
@@ -17,23 +17,11 @@ $(document).ready(function() {
                   const phoneCollapseInstance = bootstrap.Collapse.getInstance($phoneCollapse[0]);
                   phoneCollapseInstance.hide();
             }
-      }) 
-
-      /*    Initial attempt targeting only the other collapse el
-            No longer needed since func above takes care of this usecase
-      $emailCollapse.on('shown.bs.collapse', function() {
-            const phoneCollapseInstance = bootstrap.Collapse.getInstance($phoneCollapse[0]);
-            if(phoneCollapseInstance){
-                  phoneCollapseInstance.hide();
-            }
-      })
-
-      $phoneCollapse.on('shown.bs.collapse', function() {
-            const emailCollapseInstance = bootstrap.Collapse.getInstance($emailCollapse[0]);
-            if(emailCollapseInstance) {
-                  emailCollapseInstance.hide();
+            else if ($instaCollapse.hasClass('show') && !$instaCollapse.is(event.target) && !$instaCollapse.has(event.target).length && !$instaButton.is(event.target)){
+                  const instaCollapseInstance = bootstrap.Collapse.getInstance($instaCollapse[0]);
+                  instaCollapseInstance.hide();
             }
       });
-      */
-      
+
 });
+
