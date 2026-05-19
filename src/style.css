@@ -267,6 +267,7 @@ body .max-width-576px {
    display: flex;
    position: absolute;
    justify-content: center;
+   width: 100%;
    top: 23%;
    padding: 4px 10px 4px 10px;
    border-radius: 50px;
@@ -275,6 +276,7 @@ body .max-width-576px {
 
 .title h1 {
    position: absolute;
+   width: auto;
    color: rgb(0, 0, 0, .75);
    text-shadow: 0 10px 25px rgba(255, 255, 255, 0.9);
 }
